@@ -1,0 +1,26 @@
+<!--page display of characters-->
+<div class="container" id="contents">
+<div class="row" *ngIf="allCharacters.length>0"> <!--if data exists-->
+    <div *ngFor="let character of allCharacters" class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+      <!--card display-->     
+      <div class="panel panel-default"> 
+            <div class="panel-heading">
+              <h4><b>{{character.name || defaultValue | uppercase}}</b></h4>              
+            </div>
+              <div class="panel-body">
+                  <img class="card-img img-responsive" src="https://rameshkmunjal.github.io/iceNfire/assets/images/GOT-CHAR-IMG-3.jpg" alt="Card image cap">
+              </div>
+              <div class="panel-body">
+                  <p><b>Gender : </b>{{character.gender || defaultValue}}</p>
+                <p><b>Culture :</b>{{character.culture || defaultValue}}</p> 
+                
+                <p><b>Aiases : </b>{{character.aliases }}</p>
+              </div>
+              <div class="panel-footer">  <!--carving out id and creating link -->
+                <a class="btn" routerLink="/characters/{{character.url.split('/').pop()}}">View Details</a>
+              </div><!--End of card-body-->  
+          </div><!--End of card-->
+
+        </div><!--End of col div and ngFor loop-->
+    </div><!--End of row and ngIf block-->
+  </div><!--End of container - #contents-->

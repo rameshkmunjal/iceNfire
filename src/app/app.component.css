@@ -1,0 +1,40 @@
+/* CSS ruling for container holding nav     */
+#navBox{
+    background:rgb(200, 180, 140 ); 
+    padding-top:10px;
+    padding-bottom:0px; 
+    height:auto !important;    
+}
+/* CSS ruling for nav link    */
+#navBox a{
+    color: rgb(52, 27, 25 );
+    padding:5px 20px;
+    font-weight:bold;
+}
+/* when link hovered    */
+#navBox a:hover{
+    background: rgb(52, 27, 25 );
+    color:white;
+    border-radius:5px;
+    font-size:16px;
+}
+/* navbar brand on left most side    */
+.navbar-brand{
+    font-family:Snell Roundhand, cursive ;
+    background:rgb(52, 27, 25 );
+    height:35px !important;
+    margin-bottom:10px;
+    border-radius:10px;
+    color:white !important;
+}
+/* navbar brand when hovered   */
+.navbar-brand:hover{
+    background:rgb(199, 0, 57) !important;    
+}
+/* icon-bar in collapsed nav */
+.navbar-header .icon-bar{
+    background:black !important;
+}
+
+
+

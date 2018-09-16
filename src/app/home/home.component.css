@@ -1,0 +1,11 @@
+/* CSS for HomeComponent   */
+/* CSS ruling for container holding select list option box     */
+#formContainer{
+    background:rgb(52, 27, 25 );
+    color:rgb(225, 225, 225);
+    padding-top:15px; 
+}
+/* CSS ruling for options to be selected   */
+#filterType{
+    font-weight:bold;
+}

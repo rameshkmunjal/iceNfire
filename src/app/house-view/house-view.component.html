@@ -1,0 +1,28 @@
+<!--page to show a single house info-->
+<div class="container" id="contents">
+  <div class="row" *ngIf="currentHouseView"><!--if data exists-->
+    <div  class="col-md-4 col-md-offset-4 "><!--card in the middle-->
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4><b>{{currentHouseView.name || defaultValue | uppercase}}</b></h4>
+            </div> 
+            <div class="panel-body">
+                <img class="card-img img-responsive" src="https://rameshkmunjal.github.io/iceNfire/assets/images/GOT-HOUSE-IMG-1.jpg" alt="Card image cap">
+            </div>            
+            <div class="panel-body">
+              <ul class="list-group">
+                <li class="list-group-item"><b>Region : </b>{{currentHouseView.region || defaultValue}}</li>
+                <li class="list-group-item"><b>Coat of Arms : </b>{{currentHouseView.coatOfArms || defaultValue}}</li>
+                <li class="list-group-item"><b>Words : </b>{{currentHouseView.words || defaultValue}}</li>
+                <li class="list-group-item"><b>Founded : </b>{{currentHouseView.founded || defaultValue }}</li>
+                <li class="list-group-item"><b>Founder : </b>{{currentHouseView.founder || defaultValue }}</li>
+                <li class="list-group-item"><b>Died Out : </b>{{currentHouseView.diedout || defaultValue}}</li>
+              </ul>
+            </div>              
+            <div class="panel-footer">
+                <a (click)="goBack()" class="btn">Go Back</a><!--go back to previous location-->
+            </div>
+        </div> 
+      </div><!--End of col div and ngFor loop-->
+  </div><!--End of row and ngIf block-->
+</div><!--End of container - #contents-->

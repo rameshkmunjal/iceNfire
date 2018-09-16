@@ -1,0 +1,41 @@
+/* You can add global styles to this file, and also import other style files */
+#contents{   
+    background:rgb(235, 206,168 );
+    height:auto;
+    padding-top:20px; 
+}   
+.panel{
+    min-height:470px;
+    background:#eee;
+}
+.panel-heading{
+    text-align:center;
+}
+.panel-footer{
+    text-align:center;
+}
+.panel-body{
+    background:white;
+}
+.panel-footer .btn:hover{
+    color:white;
+    font-weight:bold;
+}
+.right-span{
+    float:right;
+}
+.btn{
+    padding:5px 20px;
+    background:rgb(52, 27, 25 );
+    color:rgb(100, 100, 100);    
+    text-align:center;
+    font-family:arial;
+    font-weight:bold;
+}
+.btn:hover{
+    color:white;
+    font-weight:bold;
+}
+.card-img{
+    margin:0 auto; 
+}

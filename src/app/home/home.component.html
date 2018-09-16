@@ -1,0 +1,91 @@
+<!--Home component will contain search bar and home/books/characters/houses page-->
+<div class="container"  id="formContainer">
+    <div class="row">
+      <div class="col-md-4 col-md-offset-4"><!--To set searchbar in middle-->
+        <form>
+          <div class="form-group"><!--A dropdown select list-->
+              <select class="form-control" name="filterType" [(ngModel)]="filterType"  id="filterType">              
+                <option value="" selected>All</option>
+                <option value="books">Books</option>
+                <option value="characters">Characters</option>
+                <option value="houses">Houses</option>              
+              </select>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div><!--End of search bar html code-->
+
+<!--This container will contain page information - generated dynamically -->
+<div class="container" id="contents">
+  <div class="row" *ngIf="allItems.length > 0"> <!--If there is any data in allItems-->
+      <!--Start loop and also set filter-->
+      <div *ngFor="let item of allItems | select:filterType" class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+      <!--books string obtained by pruning url and using split and shift methods-->
+        <div [ngSwitch]="item.url.substr(34 , item.url.length-1).split('/').shift()">
+          <ng-template [ngSwitchCase]="'books'">
+              <div class="panel panel-default">
+                  <div class="panel-heading">
+                      <h5 class="card-title"><b>{{item.name | uppercase }}</b></h5>
+                  </div>
+                  <div class="panel-body">
+                      <img class="card-img img-responsive" src="https://rameshkmunjal.github.io/iceNfire/assets/images/GOT-BOOK-IMG-1.jpg" alt="Card image cap">
+                  </div>
+                  <div class="panel-body">
+                      <p><b>Publisher : </b>{{item.publisher}}</p>
+                  </div>
+                  <div class="panel-footer">
+                      <a class="btn" routerLink="/books/{{item.url.split('/').pop()}}">View Details</a>
+                  </div>
+              </div>                
+          </ng-template><!--End of Switch case books-->
+
+          <!--characters string obtained by pruning url and using split and shift methods-->
+          <ng-template [ngSwitchCase]="'characters'">
+              <div class="panel panel-default">
+                  <div class="panel-heading">
+                      <h5 class="card-title"><b>{{item.name || defaultValue | uppercase }}</b></h5>
+                  </div>
+                  <div class="panel-body">
+                      <img class="card-img img-responsive" src="https://rameshkmunjal.github.io/iceNfire/assets/images/GOT-CHAR-IMG-3.jpg" alt="Card image cap">
+                  </div>
+                  <div class="panel-body">
+                      <p>
+                          <span class="left-span"><b>Gender : </b>{{item.gender || defaultValue}}</span>
+                          <span class="right-span"><b>Spouse : </b>{{item.spouse || defaultValue}}</span>
+                      </p>              
+                      <p><b>Culture : </b>{{item.culture || defaultValue}}</p>
+                      <p>
+                        <span class="left-span"><b>Born : </b>{{item.born || defaultValue}}</span>
+                        <span class="right-span"><b>Died : </b>{{item.died || defaultValue}}</span>
+                      </p>
+                      <p><b>Aiases : </b>{{item.aliases || defaultValue}}</p>
+                  </div>
+                  <div class="panel-footer">
+                      <a class="btn" routerLink="/characters/{{item.url.split('/').pop()}}">View Details</a>
+                  </div>
+                </div>                
+          </ng-template><!--End of Switch case characters-->
+          <!--houses string obtained by pruning url and using split and shift methods-->
+          <ng-template [ngSwitchCase]="'houses'">            
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h5 class="card-title"><b>{{item.name  | uppercase}}</b></h5>
+                    </div> 
+                    <div class="panel-body">
+                        <img class="card-img img-responsive" src="https://rameshkmunjal.github.io/iceNfire/assets/images/GOT-HOUSE-IMG-1.jpg" alt="Card image cap">
+                    </div>            
+                    <div class="panel-body">
+                        
+                        <p><b>Region : </b>{{item.region || defaultValue}}</p>
+                        <p><b>Words : </b>{{item.words || defaultValue}}</p>
+                    </div>              
+                    <div class="panel-footer">
+                        <a class="btn" routerLink="/houses/{{item.url.split('/').pop()}}">View Details</a>
+                    </div>
+                </div>                       
+          </ng-template > <!--End of Switch case houses-->    
+        
+      </div><!--End of col div and ngFor loop-->
+    </div><!--End of row and ngIf block-->
+  </div><!--End of div id contents-->
